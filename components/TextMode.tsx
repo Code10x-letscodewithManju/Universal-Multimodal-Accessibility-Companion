@@ -55,21 +55,26 @@ export const TextMode: React.FC<TextModeProps> = ({ onBack, settings }) => {
 
   return (
     <div className="flex flex-col h-full bg-zinc-950">
-       <div className="flex items-center justify-between p-6 border-b border-zinc-800 bg-zinc-900">
-        <Button label="Back" onClick={onBack} variant="secondary" icon="arrow_back" />
-        <h2 className="text-xl font-bold text-emerald-400">Content Clarifier</h2>
+       <div className="flex items-center justify-between px-6 py-4 border-b border-zinc-800/50 bg-zinc-900/80 backdrop-blur-md sticky top-0 z-10">
+            <div className="flex items-center gap-4">
+                <Button label="Back" onClick={onBack} variant="secondary" icon="arrow_back" className="h-10 w-10 !p-0 rounded-full flex items-center justify-center shadow-none bg-zinc-800/50" />
+                <div>
+                    <h2 className="text-lg font-bold text-white tracking-tight">Content Clarifier</h2>
+                    <p className="text-[10px] text-emerald-400 font-bold uppercase tracking-widest">Cognitive Simplification Engine</p>
+                </div>
+            </div>
       </div>
 
       <div className="flex p-4 gap-2 bg-zinc-900 border-b border-zinc-800">
           <button 
             onClick={() => setActiveTab('input')}
-            className={`flex-1 py-2 rounded-lg font-bold transition-all ${activeTab === 'input' ? 'bg-zinc-700 text-white' : 'text-zinc-500'}`}
+            className={`flex-1 py-2 rounded-lg font-bold transition-all ${activeTab === 'input' ? 'bg-zinc-800 text-white shadow-lg' : 'text-zinc-500 hover:text-zinc-400'}`}
           >
             Original
           </button>
           <button 
             onClick={() => setActiveTab('output')}
-            className={`flex-1 py-2 rounded-lg font-bold transition-all ${activeTab === 'output' ? 'bg-emerald-600 text-white' : 'text-zinc-500'}`}
+            className={`flex-1 py-2 rounded-lg font-bold transition-all ${activeTab === 'output' ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-900/20' : 'text-zinc-500 hover:text-zinc-400'}`}
           >
             Simplified
           </button>
@@ -112,7 +117,7 @@ export const TextMode: React.FC<TextModeProps> = ({ onBack, settings }) => {
 
         {activeTab === 'output' && (
             <div className="h-full flex flex-col p-6 animate-fade-in bg-zinc-900/30">
-                 <div className="flex-1 overflow-y-auto rounded-2xl bg-zinc-900 border border-zinc-700 p-6 shadow-inner">
+                 <div className="flex-1 overflow-y-auto rounded-2xl bg-zinc-900 border border-zinc-700 p-6 shadow-inner custom-scrollbar">
                     {isLoading ? (
                         <div className="flex flex-col items-center justify-center h-full space-y-6">
                             <div className="relative w-20 h-20">

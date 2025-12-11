@@ -56,32 +56,41 @@ export const Dashboard: React.FC<DashboardProps> = ({ setMode }) => {
   return (
     <div className="flex flex-col h-full bg-black relative overflow-hidden">
       {/* Ambient Background Lights */}
-      <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-blue-900/20 rounded-full blur-[100px] pointer-events-none animate-pulse" style={{ animationDuration: '8s' }} />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-purple-900/20 rounded-full blur-[100px] pointer-events-none animate-pulse" style={{ animationDuration: '10s' }} />
+      <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-blue-900/10 rounded-full blur-[120px] pointer-events-none animate-pulse" style={{ animationDuration: '8s' }} />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-purple-900/10 rounded-full blur-[120px] pointer-events-none animate-pulse" style={{ animationDuration: '10s' }} />
 
       {/* Header Section */}
-      <header className="px-8 pt-12 pb-6 z-10 flex justify-between items-start">
-        <div className="space-y-3 animate-fade-in">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900/50 border border-zinc-800/50 backdrop-blur-sm text-[10px] uppercase tracking-widest font-bold text-zinc-400">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            <span>AI Online</span>
-          </div>
-          <div>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-1">
-              UMAC <span className="font-light text-zinc-600">OS</span>
-            </h1>
-            <p className="text-zinc-400 text-base max-w-[280px] leading-relaxed font-medium">
-              Your multimodal bridge to the world. Select a tool to begin.
-            </p>
-          </div>
+      <header className="px-8 pt-12 pb-8 z-10 flex flex-col relative">
+        {/* Status Badge */}
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900/80 border border-zinc-800 backdrop-blur-md text-[10px] uppercase tracking-widest font-bold text-zinc-400 w-fit mb-6 animate-fade-in shadow-lg">
+            <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span>System Operational</span>
         </div>
 
+        {/* Main Title */}
+        <div className="animate-fade-in" style={{ animationDelay: '0.1s' }}>
+            <h1 className="text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-200 to-zinc-500 tracking-tighter mb-3 drop-shadow-sm">
+            UMAC
+            </h1>
+            {/* Expanded Title */}
+            <h2 className="text-xl md:text-2xl font-light text-white mb-5 tracking-tight">
+            Universal Multimodal <span className="text-zinc-500 font-normal">Accessibility Companion</span>
+            </h2>
+            <p className="text-zinc-400 text-sm md:text-base max-w-md leading-relaxed border-l-2 border-zinc-800 pl-4">
+            An advanced AI engine designed to remove communication barriers using computer vision, speech synthesis, and cognitive simplification.
+            </p>
+        </div>
+        
+        {/* Settings Button (Absolute) */}
         <button 
             onClick={() => setMode(AppMode.SETTINGS)}
-            className="group relative p-3 rounded-full bg-zinc-900/50 border border-zinc-800 hover:bg-zinc-800 transition-all active:scale-95 backdrop-blur-md"
+            className="absolute top-12 right-8 group p-3 rounded-full bg-zinc-900/50 border border-zinc-800 hover:bg-zinc-800 transition-all active:scale-95 backdrop-blur-md shadow-lg"
             aria-label="Settings"
         >
-             <span className="material-icons text-zinc-400 group-hover:text-white transition-colors">settings</span>
+            <span className="material-icons text-zinc-400 group-hover:text-white transition-colors">settings</span>
         </button>
       </header>
 
@@ -136,7 +145,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ setMode }) => {
           />
           
           <div className="col-span-2 text-center mt-4 opacity-0 animate-fade-in" style={{ animationDelay: '0.5s' }}>
-             <p className="text-zinc-600 text-xs font-medium uppercase tracking-widest">Powered by Gemini 2.5 & 3 Pro</p>
+             <p className="text-zinc-600 text-[10px] font-bold uppercase tracking-widest">Powered by Gemini 3 Pro & 2.5 Flash</p>
           </div>
         </div>
       </div>
