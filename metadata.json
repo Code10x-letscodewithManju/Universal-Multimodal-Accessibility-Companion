@@ -1,0 +1,8 @@
+{
+  "name": "UMAC - Accessibility Companion",
+  "description": "Universal Multimodal Accessibility Companion removing communication barriers via Gemini 3 Pro.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
